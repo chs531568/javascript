@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="kp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 5-2</title>
+    <script>
+        // 객체를 데이터 타입으로 사용
+        // object 타입
+        // 배열과 같이 하나의 이름으로 여러개의 데이터를 저장할수 있는 데이터 타입
+        // 선언 기호는 '{}' 각각의 데이터 구분을 ','
+        // 배열은 index 를 사용하여 각각의 데이터를 구분하지만, object 타입은 key라는 것이 존재하여 각각의 데이터와 1:1로 연결되어 있음 (key와 value로 구분되어 짐)
+        // key와 value는 ':' 으로 구분함
+        // object 타입의 각각의 요소에 접근시 '.'
+        // object타입명.key
+        // 파이썬 언어의 딕셔너리 자료형과 동일한 형태 (자바 언어에서는 hashmap 타입과 동일)
+        // 배열과 동일하게 모든 데이터 타입을 저장할수 있음
+
+        // object 타입 선언
+        // var object명 = {}; // 빈 object 타입
+        // var object명 = {key1:value1, key2:value2, key3:value3, ....}
+
+        // object 타입의 요소에 저장
+        // obj.key명 = 데이터
+
+        // object 타입의 요소의 값 출력
+        // obj.key명
+        // console.log(obj.key);
+
+        var car = {
+            name: "말리부",
+            type: "세단",
+            color: "검정",
+            siez: "중형"
+        };
+
+        console.log(car.name);
+        console.log(car.siez);
+
+        car.color = "회색";
+        console.log(car.color);
+
+        // 배열과 object 타입의 차이점
+        // 배열은 동일한 형태의 데이터를 저장하기에 최적화되어 있음
+        // 배열은 index를 사용하기 때문에 저장된 데이터의 순서가 중요함
+        // object 타입은 하나의 사물을 나타내는 여러가지 데이터를 모아두기에ㅔ 최적화 되어 있음
+        // object 타입은 key와 value이 1:1로 연결되어 있기 때문에 순서와 무관함
+
+
+
+        var arrbbs1 = [1329225, "믿을 수 없을만큼 완전히 돌아버린 우리집 고먐미", "꽁짜플레이", "15:01", 3, 0];
+        var arrbbs2 = [1329224, "목욕 안시켜주면 등쪽은 원래 떡짐?", "ㅇㅇ", "14:58" , 10, 0];
+        var arrbbs3 = [1329223, "국내 토끼 갤러리", "ㅇㅇㅅ", "14:52", 24, 2]
+        
+        var object1 = {num :1329225, title : "믿을 수 없을만큼 완전히 돌아버린 우리집 고먐미", id : "꽁짜플레이",  time : "15:01", value : 3, like : 0};
+        var object2 = {num :1329224, title : "목욕 안시켜주면 등쪽은 원래 떡짐?", id : "ㅇㅇ", time : "14:58" , value : 10, like : 0};
+        var object3 = {num :1329223, title : "국내 토끼 갤러리", id : "ㅇㅇㅅ", time : "14:52", value : 24, like : 2};
+
+        console.log("-------Array----------")
+        console.log(arrbbs1[0]);
+        console.log(arrbbs1[1]);
+        console.log(arrbbs1[2]);
+        console.log(arrbbs1[3]);
+        console.log(arrbbs1[4]);
+        console.log(arrbbs1[5]);
+
+        console.log("---------object--------")
+        console.log(object1.num);
+        console.log(object1.title);
+        console.log(object1.id);
+        console.log(object1.time);
+        console.log(object1.value);
+        console.log(object1.like);
+
+        console.log("-------for문 출력--------")
+        for(i =0; i < arrbbs2.length; i++) {
+            console.log(arrbbs2[i]);
+        }
+        console.log("-------sort사용 후 for문 출력--------")
+        arrbbs3.sort();
+        for(i =0; i < arrbbs3.length; i++) {
+            console.log(arrbbs3[i]);
+        }
+        console.log("-------object 타입을 출력--------")
+        for(var data in object2) {
+            console.log(object2[data]);
+        }
+
+        // 실제로 데이터를 가지고 올 경우
+        // 각각의 게시물은 object 타입으로 자장하고, 이렇게 생성된 object 타입 변수 여러개의 하나의 배열에 넣어서 한번에 전송
+        var arrbbs = [object1, object2, object3];
+        // arrbbs[0] =object1;
+        // arrbbs[1] =object2;
+        // arrbbs[2] =object3;
+
+        // console.log(arrbbs);
+
+        // 출력 
+        console.log("----------------")
+        for(var i = 0; i < arrbbs.length; i++) {
+            console.log(arrbbs[i].num);
+            console.log(arrbbs[i].title);
+            console.log(arrbbs[i].id);
+            console.log(arrbbs[i].time);
+            console.log(arrbbs[i].value);
+            console.log(arrbbs[i].like);
+        }
+
+        console.log("-----------");
+        document.write("<table border='1'>");
+        document.write("<thead>");
+        document.write("<tr>");
+        document.write("<th>번호</th>");
+        document.write("<th>제목</th>");
+        document.write("<th>글쓴이</th>");
+        document.write("<th>날짜</th>");
+        document.write("<th>조회수</th>");
+        document.write("<th>추천</th>");
+        document.write("</tr>");
+        document.write("</thead>");
+
+        document.write("<tbody>");
+        for(var i = 0; i<arrbbs.length; i++) {
+            document.write("<tr>");
+            document.write("<td>"+arrbbs[i].num+"</td>");
+            document.write("<td>"+arrbbs[i].title+"</td>");
+            document.write("<td>"+arrbbs[i].id+"</td>");
+            document.write("<td>"+arrbbs[i].time+"</td>");
+            document.write("<td>"+arrbbs[i].value+"</td>");
+            document.write("<td>"+arrbbs[i].like+"</td>");
+            document.write("</tr>");
+        }
+        document.write("</tbody>");
+        document.write("</table>");
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
